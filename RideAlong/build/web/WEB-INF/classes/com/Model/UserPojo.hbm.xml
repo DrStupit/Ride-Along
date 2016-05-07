@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.Model.UserPojo" table="user">
+       <id column="id_no" name="id_no" type="string">
+          <generator class="native">
+              
+          </generator>
+      </id>
+      
+      
+        <property name="fname">
+          <column name="fname"></column>
+      </property>
+      
+        <property name="sname">
+          <column name="sname"></column>
+      </property>
+      
+        <property name="email">
+          <column name="email"></column>
+      </property>
+      
+        <property name="password">
+          <column name="password"></column>
+      </property>
+      
+        <property name="cell_no">
+          <column name="cell_no"></column>
+      </property>
+      
+        <property name="bio">
+          <column name="bio"></column>
+      </property>
+      
+        <property name="photo">
+          <column name="photo"></column>
+      </property>
+      
+        <property name="verified">
+          <column name="verified"></column>
+      </property>
+      
+        <property name="gender">
+          <column name="gender"></column>
+      </property>
+      
+        <property name="username">
+          <column name="username"></column>
+      </property>
+  </class>
+</hibernate-mapping>
