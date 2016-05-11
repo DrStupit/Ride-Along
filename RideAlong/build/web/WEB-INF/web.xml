@@ -7,6 +7,13 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    
+     <servlet>
+        <servlet-name>NewDispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -17,11 +24,12 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>3</load-on-startup>
     </servlet>
-    <servlet>
+   
+    
+     <servlet-mapping>
         <servlet-name>NewDispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+        <url-pattern>/service/*</url-pattern>
+    </servlet-mapping>
     
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
@@ -31,10 +39,7 @@
         <servlet-name>Main</servlet-name>
         <url-pattern>*.ride</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NewDispatcher</servlet-name>
-        <url-pattern>/service/*</url-pattern>
-    </servlet-mapping>
+   
     
     <session-config>
         <session-timeout>

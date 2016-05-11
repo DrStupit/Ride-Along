@@ -11,6 +11,7 @@ package com.Model;
  */
 public class UserPojo {
     
+    private int userId; 
     private String id_no;
     private String fname; 
     private String sname; 
@@ -23,6 +24,14 @@ public class UserPojo {
     private String photo; 
     private String verified;
 
+     public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    
     public String getId_no() {
         return id_no;
     }
