@@ -10,14 +10,19 @@ import com.Model.userDAO;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 /**
  *
- * @author Kerev
+ * @author Kielaen
  */
 @RestController
 public class API {
@@ -39,9 +44,21 @@ public class API {
         
         UserPojo users = c.getById(id);
         
-        if(users == null){
+        if(users == null)
+        {
             System.out.println("User with ID "+id+" not found");
         }
         return users;
     }
+      @RequestMapping(value="/RegUser", method = RequestMethod.POST,headers="Accept=application/json")
+     public ResponseEntity<UserPojo> addmembers(@RequestBody UserPojo l, UriComponentsBuilder ucBuilder)
+     {
+        c.saveUser(l);
+  
+         HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(ucBuilder.path("/RegUser/{id}").buildAndExpand(l.getUserId()).toUri());
+        return new ResponseEntity<UserPojo>(headers, HttpStatus.CREATED);
+    }
+
+      
 }

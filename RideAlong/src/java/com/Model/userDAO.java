@@ -7,6 +7,7 @@ package com.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate4.HibernateTemplate;
@@ -17,33 +18,14 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
  */
 public class userDAO
 {
-     HibernateTemplate template;  
+     HibernateTemplate template; 
+   
    
 public void setTemplate(HibernateTemplate template)
 {  
     this.template = template;  
     this.template.setCheckWriteOperations(false);
 }  
-
-//method to save employee  
-public void saveClass(UserPojo l)
-{  
-    template.save(l);  
-}  
-
-//method to update employee  
-public void updateClass(UserPojo l)
-{  
-    template.update(l);  
-}  
-
-//method to delete employee  
-public void deleteClass(UserPojo l){  
-    
-    template.delete(l);
-    
-}  
-
 public void updateforce (UserPojo l)
 {
   Session session= null; 
@@ -56,6 +38,27 @@ public void updateforce (UserPojo l)
     session.flush();
     session.close();
 }
+
+//method to save employee  
+public void saveUser(UserPojo l)
+{  
+    template.save(l);  
+}  
+
+//method to update employee  
+public void updateUser(UserPojo l)
+{  
+    template.update(l);  
+}  
+
+//method to delete employee  
+public void deleteUser(UserPojo l){  
+    
+    template.delete(l);
+    
+}  
+
+
 //method to return one employee of given id  
 
 public UserPojo getById(int id)
@@ -82,5 +85,7 @@ public  List<Object> getSpecific(String name, String pwd)
 
     return list;
 }
+
+
 
 }
