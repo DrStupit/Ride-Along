@@ -54,7 +54,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="./registration.jsp">Sign Up<span class="glyphicon glyphicon-user"></span></a> </li>
-                <li><a href="/">Login<span class="glyphicon glyphicon-log-in"></span></a> </li>
+                <li><a href="./login.jsp">Login<span class="glyphicon glyphicon-log-in"></span></a> </li>
             </ul>
         </div>
     </div>
